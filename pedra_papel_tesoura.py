@@ -37,18 +37,25 @@ def pedraPapelTesoura():
         else:
             print("tu ganhaste!")
             return("u")
-while True:
+
+
+numero_jogos = int(input("quantas vezes queres jogar? (escolhe 0 para jogar infinitamente) "))
+i = 0
+
+while i < numero_jogos or numero_jogos == 0:
     winner = pedraPapelTesoura()
     resultados.append(winner)
 
-    c = str(input("queres continuar [y/n]?: ")).lower()
-    while c not in ["y", "n"]:
-        c = str(input("resposta inválida, queres continuar [y/n]?: ")).lower()
+    if numero_jogos == 0:
+        c = str(input("queres continuar [y/n]?: ")).lower()
+        while c not in ["y", "n"]:
+            c = str(input("resposta inválida, queres continuar [y/n]?: ")).lower()
 
-    if c == "n":
-        break
+        if c == "n":
+            break
 
     print("-------")
+    i += 1
 
 computer_wins = resultados.count("c")
 user_wins = resultados.count("u")
